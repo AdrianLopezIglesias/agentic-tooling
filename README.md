@@ -64,6 +64,19 @@ Handy flags: `--compact` (one line), `--list` (show ops), `--help`.
 `tools/random-number.tool.json` contains a ready-to-use function-call schema,
 and `AGENTS.md` explains the contract for agents working *on* the repo.
 
+## Use it as an OpenCode tool
+
+`plugin/index.js` is an OpenCode plugin that registers a native `random_number`
+tool for every agent in a project. Wire it in by dropping this one line into
+your project at `.opencode/plugins/agentic-random.js` (adjust the path):
+
+```js
+export { default } from "../../agentic-tooling/plugin/index.js"
+```
+
+…or by adding `"plugins": ["../path/to/agentic-tooling/plugin"]` to your
+`opencode.json`. Restart OpenCode once if the tool doesn't show up immediately.
+
 ## Use as a library
 
 ```js
