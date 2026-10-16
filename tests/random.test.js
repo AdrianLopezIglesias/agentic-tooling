@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { TOOLS, runTool } from "../src/random.js";
+import { TOOLS, runTool } from "../agentic-random/random.js";
 
 function okRun(tool, params) {
   const r = runTool({ tool, params });

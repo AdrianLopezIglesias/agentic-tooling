@@ -1,0 +1,14 @@
+{
+  "name": "agentic-random",
+  "version": "0.1.0",
+  "description": "Self-contained random-number tool: Node CLI + Claude Code skill + OpenCode plugin in one folder.",
+  "type": "module",
+  "main": "index.js",
+  "bin": {
+    "agentic-random": "cli.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "MIT"
+}

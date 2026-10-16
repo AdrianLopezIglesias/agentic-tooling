@@ -1,6 +1,6 @@
 {
   "name": "random_number",
-  "description": "Generate random values: integers, floats, choices from a list, random strings, and UUIDs. Run it with: node bin/agentic-random.js --request '<json>' (or the `agentic-random` command if installed). stdout is a single JSON object {ok, tool, values, params}. Exit code 0 = ok, non-zero = error (the JSON has an 'error' message). Uses Math.random(), so results are not reproducible across calls.",
+  "description": "Generate random values: integers, floats, choices from a list, random strings, and UUIDs. Run it with: node <install-folder>/cli.js --request '<json>' (install-folder is the agentic-random/ folder, e.g. ~/.claude/skills/agentic-random or ~/.config/opencode/plugins/agentic-random). stdout is a single JSON object {ok, tool, values, params}. Exit code 0 = ok, non-zero = error (the JSON has an 'error' message). Uses Math.random(), so results are not reproducible across calls.",
   "input_schema": {
     "type": "object",
     "properties": {

@@ -4,7 +4,7 @@ import { execFileSync, spawnSync } from "node:child_process";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
-const BIN = path.join(path.dirname(fileURLToPath(import.meta.url)), "..", "bin", "agentic-random.js");
+const BIN = path.join(path.dirname(fileURLToPath(import.meta.url)), "..", "agentic-random", "cli.js");
 
 function run(args, input) {
   const result = spawnSync(process.execPath, [BIN, ...args], {

@@ -5,7 +5,7 @@
  */
 
 import fs from "node:fs";
-import { TOOLS, runTool } from "../src/random.js";
+import { TOOLS, runTool } from "./random.js";
 
 const USAGE = `agentic-random — toy random numbers for agents
 

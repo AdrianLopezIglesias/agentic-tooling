@@ -1,19 +1,17 @@
 /**
  * OpenCode plugin: registers `random_number` as a native tool for every agent.
  *
- * Loaded automatically by OpenCode when reachable at
- * `<project>/.opencode/plugins/agentic-random.js`, e.g. via a one-line
- * re-export (adjust the path as needed):
+ * This folder (agentic-random/) is self-contained: OpenCode auto-discovers it
+ * as a "plugin package directory" when copied to `~/.config/opencode/plugins/`
+ * (all projects) or to a project's `.opencode/plugins/`. See install.sh and
+ * README.md for the one-command install.
  *
- *   export { default } from "../../agentic-tooling/plugin/index.js"
- *
- * No "@opencode/plugin" import here on purpose: local plugins under
- * .opencode/plugins/ have no node_modules to resolve it from. The plain
- * { id, setup } default export is what Plugin.define() produces anyway;
- * if you publish this as a package, wrap it in Plugin.define() for types.
+ * No "@opencode/plugin" import on purpose: discovered local plugins may live
+ * outside any node_modules; the plain { id, setup } default export is what
+ * Plugin.define() produces anyway.
  */
 
-import { TOOLS, runTool } from "../src/random.js"
+import { TOOLS, runTool } from "./random.js"
 
 export default {
   id: "agentic-random",

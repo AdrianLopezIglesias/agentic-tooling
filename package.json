@@ -5,10 +5,11 @@
   "type": "module",
   "license": "MIT",
   "bin": {
-    "agentic-random": "bin/agentic-random.js"
+    "agentic-random": "agentic-random/cli.js"
   },
   "exports": {
-    ".": "./src/random.js"
+    ".": "./agentic-random/random.js",
+    "./plugin": "./agentic-random/index.js"
   },
   "scripts": {
     "test": "node --test"
