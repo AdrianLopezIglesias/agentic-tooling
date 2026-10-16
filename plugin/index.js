@@ -1,18 +1,21 @@
 /**
- * OpenCode plugin: exposes `random_number` as a real tool for every agent.
+ * OpenCode plugin: registers `random_number` as a native tool for every agent.
  *
- * To wire it into a project, create a file at `.opencode/plugins/agentic-random.js`
- * that re-exports this plugin (OpenCode auto-loads files there):
+ * Loaded automatically by OpenCode when reachable at
+ * `<project>/.opencode/plugins/agentic-random.js`, e.g. via a one-line
+ * re-export (adjust the path as needed):
  *
  *   export { default } from "../../agentic-tooling/plugin/index.js"
  *
- * Or add the path to this plugin's folder to the "plugins" list in opencode.json.
+ * No "@opencode/plugin" import here on purpose: local plugins under
+ * .opencode/plugins/ have no node_modules to resolve it from. The plain
+ * { id, setup } default export is what Plugin.define() produces anyway;
+ * if you publish this as a package, wrap it in Plugin.define() for types.
  */
 
-import { Plugin } from "@opencode/plugin"
 import { TOOLS, runTool } from "../src/random.js"
 
-export default Plugin.define({
+export default {
   id: "agentic-random",
   async setup(ctx) {
     await ctx.tool.transform((editor) => {
@@ -31,7 +34,7 @@ export default Plugin.define({
             params: {
               type: "object",
               description:
-                "Generator options. integer/float: low, high, count (float also: decimals). choice: items (array or \"a,b,c\" string), count. string: length, count. uuid: count.",
+                'Generator options. integer/float: low, high, count (float also: decimals). choice: items (array or "a,b,c" string), count. string: length, count. uuid: count.',
               additionalProperties: true,
             },
           },
@@ -45,4 +48,4 @@ export default Plugin.define({
       })
     })
   },
-})
+}
