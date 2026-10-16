@@ -1,0 +1,27 @@
+{
+  "name": "random_number",
+  "description": "Generate random values: integers, floats, choices from a list, random strings, and UUIDs. Run it with: node bin/agentic-random.js --request '<json>' (or the `agentic-random` command if installed). stdout is a single JSON object {ok, tool, values, params}. Exit code 0 = ok, non-zero = error (the JSON has an 'error' message). Uses Math.random(), so results are not reproducible across calls.",
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "tool": {
+        "type": "string",
+        "enum": ["random.integer", "random.float", "random.choice", "random.string", "random.uuid"],
+        "description": "Which generator to run."
+      },
+      "params": {
+        "type": "object",
+        "description": "Tool-specific parameters.",
+        "properties": {
+          "low": { "type": "number", "description": "Minimum value, inclusive (integer: default 0; float: default 0)." },
+          "high": { "type": "number", "description": "Maximum value, inclusive (integer: default 100; float: default 1)." },
+          "count": { "type": "integer", "minimum": 1, "maximum": 10000, "default": 1, "description": "How many values to generate." },
+          "decimals": { "type": "integer", "minimum": 0, "maximum": 15, "description": "Round floats to this many decimals (random.float only)." },
+          "items": { "type": "string", "description": "Comma-separated population for random.choice, e.g. \"red, green, blue\"." },
+          "length": { "type": "integer", "minimum": 1, "maximum": 1024, "default": 16, "description": "String length (random.string only)." }
+        }
+      }
+    },
+    "required": ["tool"]
+  }
+}

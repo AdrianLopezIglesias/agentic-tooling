@@ -1,0 +1,19 @@
+{
+  "name": "agentic-tooling",
+  "version": "0.1.0",
+  "description": "Toy agent tools: random numbers via a JSON-first CLI. Zero dependencies.",
+  "type": "module",
+  "license": "MIT",
+  "bin": {
+    "agentic-random": "bin/agentic-random.js"
+  },
+  "exports": {
+    ".": "./src/random.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
